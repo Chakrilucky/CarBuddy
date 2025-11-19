@@ -1,0 +1,24 @@
+CREATE TABLE [dbo].[TaxRates](
+	[TaxID] [int] IDENTITY(1,1) NOT NULL,
+	[TaxName] [nvarchar](150) NOT NULL,
+	[TaxPercentage] [decimal](5, 2) NOT NULL,
+	[CGST] [decimal](5, 2) NULL,
+	[SGST] [decimal](5, 2) NULL,
+	[IGST] [decimal](5, 2) NULL,
+	[ApplicableFrom] [date] NOT NULL,
+	[ApplicableTo] [date] NULL,
+	[IsActive] [bit] NOT NULL,
+	[Notes] [nvarchar](max) NULL,
+	[CreatedDate] [datetime2](7) NOT NULL,
+	[UpdatedDate] [datetime2](7) NULL,
+	[BranchID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TaxID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[TaxName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
